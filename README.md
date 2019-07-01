@@ -3,22 +3,18 @@
 
 2. 提供一套多环境配置机制，json格式
 
-   ```json
+   ```javascript
    {
      name: "一个api项目",
      charset: "UTF-8",
      timezone: "asia/shanghai"
      db: {
-       host: "localhost",
-       port: 3306,
-       db: "api-test",
+       dsn: "mysql:host=your_hostname;dbname=your_db;charset=UTF-8",
        user: "test",
        passwd: "123456",
        slaves: [
          {
-           host: "localhost",
-           port: 3306,
-           db: "api-test",
+           dsn:"mysql:host=your_hostname;dbname=your_db;charset=UTF-8",
            user: "test",
            passwd: "123456",
          }

@@ -43,16 +43,16 @@
 
 ```php
 class IndexController extends BaseController {
-	/**
-	 * @api(method="POST")
-	 **/
+  /**
+   * @api(method="POST")
+   **/
   public function api1() {
-		$userDb = User::getDb(); // 拿到数据库连接，原生PDO对象
+    $userDb = User::getDb(); // 拿到数据库连接，原生PDO对象
     $db = Db::createFromConfig('db'); // 手动从配置文件创建一个数据库连接，原生PDO对象
     $user = User::findOne(1); // 使用ORM查询user表id=1的一行数据
     return ["code" => 0, "msg" => "成功", "data" => []]
   }
 }
-Application::run(IndexController);
+Application::run(IndexController::class);
 ```
 

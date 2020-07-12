@@ -1,0 +1,22 @@
+{
+  "name": "qicfan/ptm",
+  "description": "ptm framework",
+  "minimum-stability": "stable",
+  "license": "gpl",
+  "authors": [
+    {
+      "name": "dean",
+      "email": "qicfan@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=7.4",
+    "ext-ds": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "PTM\\": "src/"
+    }
+  },
+  "bin": ["src/bin/ptm.php"]
+}

@@ -1,54 +1,11 @@
 # PTM - A PHP Framework
-1. 核心是提供API接口, rest或者自定义等
+因为PHP本身就已经是一个Web Framework所以PTM的目标就是基于PHP做一些基本的封装，比如：
+* 多环境的配置文件支持
+* 单入口（路由）
+* 基本的MVC（决定了项目的文件结构）
+* 一个核心的ORM
+* 基于PSR的日志库（只提供文件系统适配，可替换）
 
-2. 提供一套多环境配置机制，json格式
+不算一个特别全面的框架，主要是针对API的开发提供一个基础的开发环境，专注且简单，简单但不傻瓜，框架带有极强的个人主观意识，需要开发者自行把握很多东西。
 
-   ```javascript
-   {
-     name: "一个api项目",
-     charset: "UTF-8",
-     timezone: "asia/shanghai"
-     db: {
-       dsn: "mysql:host=your_hostname;dbname=your_db;charset=UTF-8",
-       user: "test",
-       passwd: "123456",
-       slaves: [
-         {
-           dsn:"mysql:host=your_hostname;dbname=your_db;charset=UTF-8",
-           user: "test",
-           passwd: "123456",
-         }
-       ]
-     }
-   }
-   ```
-
-   
-
-3. IDE友好,尽量让对象的属性和方法清晰,尽量减少魔术方法使用
-
-4. 集成一个第三方的ORM或者自己实现一个简易版
-
-5. 标准的日志系统,实现一个文件存储
-
-6. 不实现MVC,接口即业务
-
-7. 数据库的Entity封装各自的方法,Service封装复杂的业务逻辑
-
-8. 不实现单入口，回归php传统
-
-```php
-class IndexController extends BaseController {
-  /**
-   * @api(method="POST")
-   **/
-  public function api1() {
-    $userDb = User::getDb(); // 拿到数据库连接，原生PDO对象
-    $db = Db::createFromConfig('db'); // 手动从配置文件创建一个数据库连接，原生PDO对象
-    $user = User::findOne(1); // 使用ORM查询user表id=1的一行数据
-    return ["code" => 0, "msg" => "成功", "data" => []]
-  }
-}
-Application::run(IndexController::class);
-```
-
+框架层面会做到IDE友好，做到开发者可控；应用层面也会有一套约定来保持清晰健壮。

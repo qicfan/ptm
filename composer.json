@@ -11,11 +11,15 @@
   ],
   "require": {
     "php": ">=7.4",
-    "ext-ds": "*"
+    "ext-ds": "*",
+    "ext-json": "*",
+    "codeception/codeception": "^4.1",
+    "psr/log": "^1.1"
   },
   "autoload": {
     "psr-4": {
-      "PTM\\": "src/"
+      "PTM\\": "src/",
+      "demo\\": "api_example/"
     }
   },
   "bin": ["src/bin/ptm.php"]
